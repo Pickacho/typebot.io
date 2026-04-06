@@ -48,12 +48,18 @@ services:
     image: baptistearno/typebot-builder:latest
     ports:
       - "8080:3000"
+    environment:
+      - HOSTNAME=0.0.0.0  # <--- הוסף את השורה הזו
+      - REDIS_URL=redis://typebot-redis:6379
 
   typebot-viewer:
     <<: *typebot-common
     image: baptistearno/typebot-viewer:latest
     ports:
-      - "8081:3000"
+            - "8081:3000"
+    environment:
+      - HOSTNAME=0.0.0.0  # <--- הוסף את השורה הזו
+      - REDIS_URL=redis://typebot-redis:6379
 
 networks:
   typebot-network:

@@ -10,7 +10,6 @@
     "next/dist/client/router.d.ts"
   ],
   "files.watcherExclude": {
-    "**/node_modules/**": true,
     "**/.next/**": true,
     "**/dist/**": true,
     "**/opensrc/**": true,
