@@ -28,6 +28,18 @@ services:
     networks:
       - typebot-network
 
+  minio:
+    image: minio/minio
+    command: server /data --console-address ":9001"
+    restart: always
+    environment:
+      MINIO_ROOT_USER: typebot
+      MINIO_ROOT_PASSWORD: typebotpassword
+    volumes:
+      - minio-data:/data
+    networks:
+      - typebot-network
+
   typebot-redis:
     image: redis:alpine
     restart: always
